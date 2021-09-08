@@ -5,7 +5,7 @@
   ## Tutorial 1
 
 ### What I have learned today
-pada tutorial 1, saya mempelajari soal git, membuat architectural pattern, Model-View-Controller (MVC). Saya mempelajari bahwa membuat Model dan Controller dengan membuat package. View dibuat di file html dengan penggunaan Thymeleaf.
+Pada tutorial 1, saya mempelajari soal git dan membuat architectural pattern yaitu Model-View-Controller (MVC). Saya mempelajari bahwa membuat Model dan Controller dengan membuat package. View dibuat di file html dengan penggunaan Thymeleaf.
 
 ### Github
 1. Apa itu Issue Tracker? Apa saja masalah yang dapat diselesaikan dengan Issue Tracker?
