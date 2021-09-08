@@ -18,6 +18,7 @@ pada tutorial 1, saya mempelajari soal git, membuat architectural pattern, Model
 
 3. Apa keunggulan menggunakan Version Control System seperti Git dalam pengembangan
 suatu aplikasi?
+	> Dapat digunakan sebagai Alat Perencanaan sehingga dapat merencanakan suatu kegiatan dan menetapkan pekerjaan kepada anggota tim. Jadwal dapat diatur sendiri dan ini semua diperoleh dari Git dan/atau GitHub.
 
 ### Spring
 4. Apa itu library & dependency?
@@ -30,9 +31,12 @@ suatu aplikasi?
 	>Gradle, Jenkins, Teamwork, dsb.
 
 6. Selain untuk pengembangan web, apa saja yang bisa dikembangkan dengan Spring framework?
+	>Dengan Spring framework, pembaca bisa mengembangkan aplikasi enterprise.
 
 7. Apa perbedaan dari @RequestParam dan @PathVariable? Kapan sebaiknya
 menggunakan @RequestParam atau @PathVariable?
+	>@PathVariable adalah digunakan untuk mendapatkan tempat penampung dari URI (Spring menyebutnya sebagai Templat URI) dan dapat digunakan saat RequestMethod
+	>@RequestParamadalah digunakan untuk mendapatkan parameter dari URI
 
 ### What I did not understand
 1. Belum paham framework yang tersedia dalam Springboot
