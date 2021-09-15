@@ -16,7 +16,7 @@ merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja
 @Autowired tersebut dalam konteks service dan controller yang telah kamu buat
 
 Jawab:
->Anotasi @Autowired memberikan kontrol yang lebih smooth tentang bagaimana dan di mana autowiring harus dilakukan yang pada controller dan service menghubungkan pada metode settter dan getter dan constructure.
+>Anotasi @Autowired memberikan kontrol yang lebih smooth tentang bagaimana dan di mana autowiring harus dilakukan yang pada controller dan service menghubungkan pada metode settter, getter, dan constructure.
 	
 ### Pertanyaan 3:
 Cobalah untuk menambahkan sebuah Agensi dengan mengakses link berikut:
