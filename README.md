@@ -1,7 +1,49 @@
 # Tutorial APAP
 ## Authors
 * **<Tijani Putri Shabrina>** - *<1906318174>* - *<B>*
-  
+ 
+## Tutorial 2
+### Pertanyaan 1: 
+Cobalah untuk menambahkan sebuah Agensi dengan mengakses link berikut:
+http://localhost:8080/agensi/add?idAgensi=1&namaAgensi=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi
+
+Jawab:
+>Saya mengalami error pada page tersebut ketika URL tersebut dipanggil URL tersebut belum ada karena pada tahap ini saya belum memiliki view.
+
+### Pertanyaan 2: 
+Menurut kamu anotasi @Autowired pada class Controller tersebut
+merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja
+@Autowired tersebut dalam konteks service dan controller yang telah kamu buat
+
+Jawab:
+>Anotasi @Autowired memberikan kontrol yang lebih smooth tentang bagaimana dan di mana autowiring harus dilakukan yang pada controller dan service menghubungkan pada metode settter dan getter dan constructure.
+	
+### Pertanyaan 3:
+Cobalah untuk menambahkan sebuah Agensi dengan mengakses link berikut:
+http://localhost:8080/agensi/add?idAgensi=1&namaAgensi=Papa%20APAP&alamat=Maung%20Fasilkom Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi
+	
+Jawab:
+Muncul hite Label Error Page dengan error (type=Bad Request, status=400), karena kekurangan parameter yaitu parameter "noTelepon". Hal tesrsebut error karena ketika membuat model, parameter tersebut disetting required.
+
+### Pertanyaan 4:
+Jika Papa APAP ingin melihat Travel Agensi dengan nama Papa APAP, link apa yang harus diakses?
+	
+Jawab:
+> http://localhost:8080/agensi/viewAll 
+
+### Pertanyaan 5:
+Tambahkan 1 contoh Travel Agensi lainnya sesukamu. Lalu cobalah
+untuk mengakses http://localhost:8080/agensi/viewAll , apa yang akan ditampilkan?
+Sertakan juga bukti screenshotmu.
+
+Jawab:
+
+>Ditampilkan Agensi buatan sesukaku.
+![image](https://user-images.githubusercontent.com/90309133/133431970-bf0a970f-ce9d-4724-b430-eca1d0934644.png)
+
+	
+	
+
 ## Tutorial 1
 
 ### What I have learned today
