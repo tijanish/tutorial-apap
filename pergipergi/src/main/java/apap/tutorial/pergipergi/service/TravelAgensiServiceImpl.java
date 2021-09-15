@@ -27,7 +27,7 @@ public class TravelAgensiServiceImpl implements TravelAgensiService{
     @Override
     public TravelAgensiModel getAgensiByIdAgensi(String idAgensi) {
         for (int i = 0; i < listAgensi.size(); i++) {
-            if (listAgensi.get(i).equals(idAgensi)) {
+            if (listAgensi.get(i).getIdAgensi().equals(idAgensi)) {
                 return listAgensi.get(i);
             }
         }
