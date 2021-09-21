@@ -83,4 +83,11 @@ public class TravelAgensiController {
         return "update-agensi";
     }
 
+    @RequestMapping("agensi/delete")
+    public String deleteAgensi(Model model) {
+        List<TravelAgensiModel> deleteAgensi = travelAgensiService.deleteListAgensi();
+        model.addAttribute(deleteAgensi);
+        return "delete-agensi";
+    }
+
 }

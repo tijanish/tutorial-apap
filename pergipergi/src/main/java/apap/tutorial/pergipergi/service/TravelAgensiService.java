@@ -11,4 +11,6 @@ public interface TravelAgensiService {
 
     //Method untuk mendapatkan data agensi berdasarkan id agensi
     TravelAgensiModel getAgensiByIdAgensi(String idAgensi);
+
+    List<TravelAgensiModel> deleteListAgensi();
 }
