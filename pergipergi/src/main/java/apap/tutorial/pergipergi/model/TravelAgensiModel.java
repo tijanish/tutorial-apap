@@ -1,56 +1,127 @@
 package apap.tutorial.pergipergi.model;
 
-public class TravelAgensiModel {
-    private String idAgensi;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
+import java.time.LocalTime;
+import java.util.List;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter @Getter
+@Entity
+@Table(name = "travel_agensi")
+public class TravelAgensiModel implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long noAgensi;
+
+    @NotNull
+    @Size(max=30)
+    @Column(name="nama_agensi", nullable = false)
     private String namaAgensi;
-    private String alamat;
-    private String noTelepon;
 
-    public TravelAgensiModel(String idAgensi, String namaAgensi, String alamat, String noTelepon) {
-        this.idAgensi = idAgensi;
-        this.namaAgensi = namaAgensi;
-        this.alamat = alamat;
-        this.noTelepon = noTelepon;
+    @NotNull
+    @Size(max=30)
+    @Column(name="alamat_agensi", nullable = false)
+    private String alamatAgensi;
+
+    @NotNull
+    @Size(max=30)
+    @Column(name="no_telepon_agensi", nullable = false)
+    private String noTeleponAgensi;
+
+    @NotNull
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime waktuBuka;
+
+    @NotNull
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime waktuTutup;
+
+    //Relasi dengan TourGuideModel
+    @OneToMany(mappedBy = "agensi", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<TourGuideModel> listTourGuide;
+
+    //Relasi dengan DestinasiModel
+    @ManyToMany
+    @JoinTable(
+            name = "agensi_destinasi",
+            joinColumns = @JoinColumn(name = "no_agensi"),
+            inverseJoinColumns = @JoinColumn(name = "no_destinasi"))
+    List<DestinasiModel> listDestinasi;
+
+    public Long getNoAgensi() {
+        return noAgensi;
     }
 
-    public String getIdAgensi()
-    {
-        return idAgensi;
+    public void setNoAgensi(Long noAgensi) {
+        this.noAgensi = noAgensi;
     }
 
-    public String getNamaAgensi()
-    {
+    public String getNamaAgensi() {
         return namaAgensi;
     }
 
-    public String getAlamat()
-    {
-        return alamat;
-    }
-
-    public String getNoTelepon()
-    {
-        return noTelepon;
-    }
-
-    public void setIdAgensi(String idAgensi)
-    {
-        this.idAgensi = idAgensi;
-    }
-
-    public void setNamaAgensi(String namaAgensi)
-    {
+    public void setNamaAgensi(String namaAgensi) {
         this.namaAgensi = namaAgensi;
     }
 
-    public void setAlamat(String alamat)
-    {
-        this.alamat = alamat;
+    public String getAlamatAgensi() {
+        return alamatAgensi;
     }
 
-    public void setNoTelepon(String noTelepon)
-    {
-        this.noTelepon = noTelepon;
+    public void setAlamatAgensi(String alamatAgensi) {
+        this.alamatAgensi = alamatAgensi;
+    }
+
+    public String getNoTeleponAgensi() {
+        return noTeleponAgensi;
+    }
+
+    public void setNoTeleponAgensi(String noTeleponAgensi) {
+        this.noTeleponAgensi = noTeleponAgensi;
+    }
+
+    public LocalTime getWaktuBuka() {
+        return waktuBuka;
+    }
+
+    public void setWaktuBuka(LocalTime waktuBuka) {
+        this.waktuBuka = waktuBuka;
+    }
+
+    public LocalTime getWaktuTutup() {
+        return waktuTutup;
+    }
+
+    public void setWaktuTutup(LocalTime waktuTutup) {
+        this.waktuTutup = waktuTutup;
+    }
+
+    public List<TourGuideModel> getListTourGuide() {
+        return listTourGuide;
+    }
+
+    public void setListTourGuide(List<TourGuideModel> listTourGuide) {
+        this.listTourGuide = listTourGuide;
+    }
+
+    public List<DestinasiModel> getListDestinasi() {
+        return listDestinasi;
+    }
+
+    public void setListDestinasi(List<DestinasiModel> listDestinasi) {
+        this.listDestinasi = listDestinasi;
     }
 }
-
