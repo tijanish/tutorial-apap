@@ -1,6 +1,77 @@
 # Tutorial APAP
 ## Authors
 *Tijani Putri Shabrina - 1906318174 - B*
+
+## Tutorial 5
+### Pertanyaan 1: 
+Apa itu Postman? Apa kegunaannya?
+
+Jawab:
+> Postman merupakan aplikasi yang berfungsi sebagai REST Client dimana dapat digunakan untuk uji REST API.  Postman Interceptor merupakan extension pada Chrome yang dapat merekam network request dari Chrome yang kemudian disimpan pada aplikasi postman. Pada postman terdapat berbagai method yang dapat kita gunakan seperti Method GET menampilkan data dan menambahkan URI yang nantinya ditampung  pada action dan Method POST mengirimkan data langsung kepada action tanpa melalui URI sehingga method ini bersifat uncacheable ( tidak dapat disimpan pada cache).
+
+### Pertanyaan 2: 
+Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty.
+
+Jawab:
+> @JsonIgnoreProperties digunakan untuk menekan serialisasi properti atau mengabaikan pemrosesan properti JSON yang dibaca saat deserialisasi.eserialization JSON. Hal ini dapat memudahkan kita untuk panggilan REST dan menghasilkan objek domain.
+@JsonProperty digunakan untuk memetakan nama properti dengan kunci JSON selama serialisasi dan deserialisasi. Secara default, saat membuat serialisasi POJO, JSON yang dihasilkan akan memiliki kunci yang dipetakan ke bidang POJO. 
+	
+### Pertanyaan 3:
+Apa kegunaan atribut WebClient?
+
+Jawab:
+> WebClient digunakan untuk TravelAgensiRestServiceImpl yang digunakan untuk mengirim serta menerima data dari resource URI. akses diberikan pada webrequest class/
+
+### Pertanyaan 4:
+Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?
+
+Jawab:
+> ResponseEntity berfungsi untuk mewakili seluruh respons HTTP dan beperan dalam mengikonfigurasi response HTTP secara keseluruhan. sedangkan BindingResult berisi informasi mengenai kesalahan, misalkan field yang diperlukan, adanya ketidakcocokan jenis atau kesalahan dalam melakukan pemanggilan method.
+
+	
+
+## Tutorial 2
+### Pertanyaan 1: 
+Cobalah untuk menambahkan sebuah Agensi dengan mengakses link berikut:
+http://localhost:8080/agensi/add?idAgensi=1&namaAgensi=Papa%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi
+
+Jawab:
+>Saya mengalami error pada page tersebut ketika URL tersebut dipanggil URL tersebut belum ada karena pada tahap ini saya belum memiliki add-agensi.html.
+
+### Pertanyaan 2: 
+Menurut kamu anotasi @Autowired pada class Controller tersebut
+merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja
+@Autowired tersebut dalam konteks service dan controller yang telah kamu buat
+
+Jawab:
+>Anotasi @Autowired memberikan kontrol yang lebih smooth tentang bagaimana dan di mana autowiring harus dilakukan yang pada controller dan service menghubungkan pada metode settter, getter, dan constructure.
+	
+### Pertanyaan 3:
+Cobalah untuk menambahkan sebuah Agensi dengan mengakses link berikut:
+http://localhost:8080/agensi/add?idAgensi=1&namaAgensi=Papa%20APAP&alamat=Maung%20Fasilkom Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi
+	
+Jawab:
+Muncul hite Label Error Page dengan error (type=Bad Request, status=400), karena kekurangan parameter yaitu parameter "noTelepon". Hal tesrsebut error karena ketika membuat model, parameter tersebut disetting required.
+
+### Pertanyaan 4:
+Jika Papa APAP ingin melihat Travel Agensi dengan nama Papa APAP, link apa yang harus diakses?
+	
+Jawab:
+> http://localhost:8080/agensi/viewAll 
+
+### Pertanyaan 5:
+Tambahkan 1 contoh Travel Agensi lainnya sesukamu. Lalu cobalah
+untuk mengakses http://localhost:8080/agensi/viewAll , apa yang akan ditampilkan?
+Sertakan juga bukti screenshotmu.
+
+Jawab:
+
+>Ditampilkan Agensi buatan sesukaku.
+![image](https://user-images.githubusercontent.com/90309133/133431970-bf0a970f-ce9d-4724-b430-eca1d0934644.png)
+
+	
+	
+
   
 ## Tutorial 1
 
