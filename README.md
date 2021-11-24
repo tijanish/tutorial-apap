@@ -4,6 +4,15 @@
 
 ## Tutorial 7
 ### Pertanyaan 1: Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
+>1. Delete Item di Cart:
+![image](https://user-images.githubusercontent.com/90309133/143265258-df19880d-e415-40d3-ade3-fcd9becb78d9.png)
+![image](https://user-images.githubusercontent.com/90309133/143265303-4271804c-fd96-4bd4-91e4-a53efe6f75d0.png)
+
+>2. Balance :
+![image](https://user-images.githubusercontent.com/90309133/143265860-55aa01ea-c071-46ef-afda-cd2b8a1d7e59.png) ![image](https://user-images.githubusercontent.com/90309133/143265690-c34b0e3b-59c0-47cb-bd93-1097d0c5642f.png)
+
+>3. Alert:
+![image](https://user-images.githubusercontent.com/90309133/143266087-62e234b6-8377-4be7-868f-92c86b6e0710.png)
 
 ### Pertanyaan 2: Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?
 Jawab:
