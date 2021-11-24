@@ -1,5 +1,6 @@
 package apap.tutorial.pergipergi.service;
 
+
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
 import apap.tutorial.pergipergi.rest.AgensiDetail;
 import reactor.core.publisher.Mono;
@@ -27,4 +28,5 @@ public interface TravelAgensiService {
 
     //Method untuk mendapatkan data agensi berdasarkan id agensi
     TravelAgensiModel getAgensiByIdAgensi(String idAgensi);
+
 }

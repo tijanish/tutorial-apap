@@ -13,6 +13,13 @@ import reactor.core.publisher.Mono;
 
 import javax.transaction.Transactional;
 import java.time.LocalTime;
+
+//import org.springframework.util.MultivalueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+import javax.transaction.Transactional;
+import java.time. LocalTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -21,6 +28,11 @@ import java.util.Optional;
 @Service
 @Transactional
 public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
+@Service
+@Transactional
+
+public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
+    private final WebClient webClient;
 
     @Autowired
     private TravelAgensiDb travelAgensiDb;
@@ -33,11 +45,16 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
 
     @Override
     public TravelAgensiModel createAgensi(TravelAgensiModel agensi){
+
+    @Override
+    public TravelAgensiModel createAgensi(TravelAgensiModel agensi) {
         return travelAgensiDb.save(agensi);
     }
 
     @Override
     public List<TravelAgensiModel> retrieveListAgensi(){
+
+    public List<TravelAgensiModel> retrieveListAgensi() {
         return travelAgensiDb.findAll();
     }
 
@@ -48,12 +65,19 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
         if(agensi.isPresent()){
             return agensi.get();
         }else {
+
+    public TravelAgensiModel getAgensiByNoAgensi(Long noAgensi) {
+        Optional<TravelAgensiModel> agensi = travelAgensiDb.findByNoAgensi(noAgensi);
+        if (agensi.isPresent()) {
+            return agensi.get();
+        } else {
             throw new NoSuchElementException();
         }
     }
 
     @Override
     public TravelAgensiModel updateAgensi(Long noAgensi, TravelAgensiModel AgensiUpdate){
+    public TravelAgensiModel updateAgensi(Long noAgensi, TravelAgensiModel AgensiUpdate) {
         TravelAgensiModel Agensi = getAgensiByNoAgensi(noAgensi);
         Agensi.setNamaAgensi(AgensiUpdate.getNamaAgensi());
         Agensi.setAlamatAgensi(AgensiUpdate.getAlamatAgensi());
@@ -73,12 +97,24 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
                 && Agensi.getListTourGuide().isEmpty()){
             travelAgensiDb.delete(Agensi);
         }else{
+
+    public void deleteAgensi(Long noAgensi) {
+        LocalTime now = LocalTime.now();
+        TravelAgensiModel Agensi = getAgensiByNoAgensi(noAgensi);
+        if ((now.isBefore(Agensi.getWaktuBuka()) || now.isAfter(Agensi.getWaktuTutup()))
+                && Agensi.getListTourGuide().isEmpty()) {
+            travelAgensiDb.delete(Agensi);
+        } else {
             throw new UnsupportedOperationException("Agensi still open!");
         }
     }
 
 
 
+
+    public TravelAgensiRestServiceImpl(WebClient.Builder webClientBuilder){
+        this.webClient = webClientBuilder.baseUrl(Setting.agensiUrl).build();
+    }
     @Override
     public Mono<String> getStatus(Long noAgensi){
         return this.webClient.get().uri("/rest/agensi/" + noAgensi + "/status")
@@ -91,9 +127,16 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
         MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
         data.add("namaAgensi", "Agensi Mock Server");
         data.add("alamatAgensi", "Di hatimu");
+
+    @Override
+    public Mono<AgensiDetail> postStatus() {
+        MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
+        data.add("namaAgensi", "Dino");
+        data.add("alamatAgensi", "Depok");
         return this.webClient.post().uri("/rest/agensi/full")
                 .syncBody(data)
                 .retrieve()
                 .bodyToMono(AgensiDetail.class);
     }
+}
 }
