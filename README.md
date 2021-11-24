@@ -1,6 +1,28 @@
 # Tutorial APAP
 ## Authors
 *Tijani Putri Shabrina - 1906318174 - B*
+
+## Tutorial 7
+### Pertanyaan 1: Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
+
+### Pertanyaan 2: Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?
+Jawab:
+> State merupakan sebuah data private dari sebuah component yang hanya tersedia untuk component tersebut
+tanpa dapat diakses dari component lain. Sedangkankan props merupakan singkatan dari property yang merupakan sebuah
+parameter dari fungsi component. Bentuk dari props menyerupai attribute pada tag HTML.   
+
+### Pertanyaan 3: Menurut kamu, apakah sebaiknya kita menggunakan component (e.g. List, Item) dalam React? sebutkan alasannya.
+Jawab:
+> Ya, Karena dengan menggunakan component di React kita dapat membuat suatu code yang bisa direuse berkali-kali sesuai kebutuhan dan dapat dipanggil saja. 
+
+### Pertanyaan 4: Apa perbedaan class component dan functional component?
+Jawab:
+>*Class Component alah jenis React komponen dengan syntax yang dapat dikatakan sebagai versi lama, sehingga lebih rumit dan panjang. Sedangkan, Function Component adalah jenis React component yang memiliki syntax yang lebih simple dan memungkinkan kita untuk menggunakan React Hooks.
+
+### Pertanyaan 5: Dalam react, apakah perbedaan component dan element?
+Jawab:
+> Component memungkinkan untuk membagi User Interface (UI) menjadi bagian-bagian yang independen dan dapat digunakan kembali. Komponen seperti fungsi JavaScript. Mereka menerima input (Props) dan mengembalikan elemen React yang menggambarkan apa yang akan muncul di layar. Sedangkan elemen adalah bagian terkecil pada aplikasi React. Elemen menjelaskan apa yang ingin ditampilkan pada layar. 
+
 ## Tutorial 6
 ### Pertanyaan 1: Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi?
 
