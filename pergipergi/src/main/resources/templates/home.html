@@ -12,6 +12,8 @@
 <nav th:replace="fragments/fragment :: navbar('Home')"></nav>
 <div class="d-flex justify-content-center">
     <div class="m-4">
+        <h2 th:text="'Hello '+${#httpServletRequest.remoteUser}+'!'">Masuk sebagai</h2>
+
         <h2>Selamat datang di PergiPergi</h2>
         <div class="d-flex justify-content-center">
             <a th:href="@{/agensi/viewall}" class="mx-2 btn btn-primary">Lihat semua agensi</a>
@@ -21,6 +23,10 @@
             <a th:href="@{/destinasi/viewall}" class="mx-2 btn btn-primary">Lihat semua destinasi</a>
             <a th:href="@{/destinasi/add}" class="mx-2 btn btn-outline-primary">Tambah destinasi</a>
         </div>
+        <div class=" my-3 d-flex justify-content-center">
+            <a th:href="@{/user/add}" class="mx-2 btn btn-outline-primary">Tambah user</a>
+        </div>
+
     </div>
 </div>
 </body>

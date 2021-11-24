@@ -39,6 +39,17 @@ public class TourGuideModel  implements Serializable {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private TravelAgensiModel agensi;
 
+    @Column(name = "umur")
+    private String umur;
+
+    public String getUmur() {
+        return umur;
+    }
+
+    public void setUmur(String umur) {
+        this.umur = umur;
+    }
+
     public Long getNoTourGuide() {
         return noTourGuide;
     }

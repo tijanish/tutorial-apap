@@ -15,7 +15,7 @@ public interface TravelAgensiService {
     TravelAgensiModel updateAgensi(TravelAgensiModel travelAgensi);
     void deleteAgensi(TravelAgensiModel travelAgensi);
     boolean isClosed(LocalTime waktuBuka, LocalTime waktuTutup);
-=======
+
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
 import java.util.List;
 

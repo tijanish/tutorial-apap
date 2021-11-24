@@ -106,7 +106,7 @@ public class TravelAgensiController {
         model.addAttribute("agensi", agensi);
         model.addAttribute("listTourGuide", listTourGuide);
         model.addAttribute("listDestinasi", agensi.getListDestinasi());
-=======
+
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
 import apap.tutorial.pergipergi.service.TravelAgensiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -166,6 +166,40 @@ public class TravelAgensiController {
 
         return "view-agensi";
     }
+
+    @GetMapping("/agensi/update/{noAgensi}")
+    public String updateAgensiFormPage(
+            @PathVariable Long noAgensi,
+            Model model
+    ){
+        TravelAgensiModel agensi = travelAgensiService.getAgensiByNoAgensi(noAgensi);
+        model.addAttribute("agensi", agensi);
+        return "form-update-agensi";
+    }
+
+    @PostMapping("/agensi/update")
+    public String updateAgensiSubmitPage(
+            @ModelAttribute TravelAgensiModel agensi,
+            Model model
+    ){
+        TravelAgensiModel updatedAgensi = travelAgensiService.updateAgensi(agensi);
+        model.addAttribute("noAgensi", updatedAgensi.getNoAgensi());
+        return "update-agensi";
+    }
+
+    @GetMapping("/agensi/delete/{noAgensi}")
+    public String deleteAgensi(@PathVariable Long noAgensi, Model model) {
+        LocalTime now = LocalTime.now();
+        TravelAgensiModel agensi = travelAgensiService.getAgensiByNoAgensi(noAgensi);
+        if ((now.isBefore(agensi.getWaktuBuka()) || now.isAfter(agensi.getWaktuTutup()))
+                && agensi.getListTourGuide().isEmpty()) {
+            travelAgensiService.deleteAgensi(agensi);
+            model.addAttribute("noAgensi", agensi.getNoAgensi());
+            return "delete-agensi";
+        }
+        return "error-notfound";
+    }
+}
 
 
     @GetMapping("/agensi/update/{noAgensi}")

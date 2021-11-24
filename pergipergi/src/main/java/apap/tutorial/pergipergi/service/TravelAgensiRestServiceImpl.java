@@ -7,6 +7,13 @@ import apap.tutorial.pergipergi.rest.Setting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+
+import javax.transaction.Transactional;
+import java.time.LocalTime;
+
 //import org.springframework.util.MultivalueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -17,6 +24,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+
+@Service
+@Transactional
+public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
 @Service
 @Transactional
 
@@ -26,17 +37,35 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
     @Autowired
     private TravelAgensiDb travelAgensiDb;
 
+    private final WebClient webClient;
+
+    public TravelAgensiRestServiceImpl(WebClient.Builder webClientBuilder){
+        this.webClient = webClientBuilder.baseUrl(Setting.agensiUrl).build();
+    }
+
+    @Override
+    public TravelAgensiModel createAgensi(TravelAgensiModel agensi){
+
     @Override
     public TravelAgensiModel createAgensi(TravelAgensiModel agensi) {
         return travelAgensiDb.save(agensi);
     }
 
     @Override
+    public List<TravelAgensiModel> retrieveListAgensi(){
+
     public List<TravelAgensiModel> retrieveListAgensi() {
         return travelAgensiDb.findAll();
     }
 
     @Override
+    public TravelAgensiModel getAgensiByNoAgensi(Long noAgensi){
+        Optional<TravelAgensiModel> agensi = travelAgensiDb.findByNoAgensi(noAgensi);
+
+        if(agensi.isPresent()){
+            return agensi.get();
+        }else {
+
     public TravelAgensiModel getAgensiByNoAgensi(Long noAgensi) {
         Optional<TravelAgensiModel> agensi = travelAgensiDb.findByNoAgensi(noAgensi);
         if (agensi.isPresent()) {
@@ -47,6 +76,7 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
     }
 
     @Override
+    public TravelAgensiModel updateAgensi(Long noAgensi, TravelAgensiModel AgensiUpdate){
     public TravelAgensiModel updateAgensi(Long noAgensi, TravelAgensiModel AgensiUpdate) {
         TravelAgensiModel Agensi = getAgensiByNoAgensi(noAgensi);
         Agensi.setNamaAgensi(AgensiUpdate.getNamaAgensi());
@@ -59,6 +89,15 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
     }
 
     @Override
+    public void deleteAgensi(Long noAgensi){
+        LocalTime now = LocalTime.now();
+        TravelAgensiModel Agensi = getAgensiByNoAgensi(noAgensi);
+
+        if((now.isBefore(Agensi.getWaktuBuka()) || now.isAfter(Agensi.getWaktuTutup()))
+                && Agensi.getListTourGuide().isEmpty()){
+            travelAgensiDb.delete(Agensi);
+        }else{
+
     public void deleteAgensi(Long noAgensi) {
         LocalTime now = LocalTime.now();
         TravelAgensiModel Agensi = getAgensiByNoAgensi(noAgensi);
@@ -70,6 +109,9 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
         }
     }
 
+
+
+
     public TravelAgensiRestServiceImpl(WebClient.Builder webClientBuilder){
         this.webClient = webClientBuilder.baseUrl(Setting.agensiUrl).build();
     }
@@ -79,6 +121,13 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
                 .retrieve()
                 .bodyToMono(String.class);
     }
+
+    @Override
+    public Mono<AgensiDetail> postStatus(){
+        MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
+        data.add("namaAgensi", "Agensi Mock Server");
+        data.add("alamatAgensi", "Di hatimu");
+
     @Override
     public Mono<AgensiDetail> postStatus() {
         MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
@@ -89,4 +138,5 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
                 .retrieve()
                 .bodyToMono(AgensiDetail.class);
     }
+}
 }
