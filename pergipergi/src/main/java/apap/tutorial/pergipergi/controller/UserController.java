@@ -26,6 +26,8 @@ public class UserController {
     private RoleService roleService;
 
     @GetMapping("/add")
+    public String addUserFormPage(Model model) {
+
     public String addUserFormPage(Model model){
         UserModel user = new UserModel();
         List<RoleModel> listRole = roleService.findAll();
@@ -35,6 +37,8 @@ public class UserController {
     }
 
     @PostMapping(value = "/add")
+    public String addUserSubmit(@ModelAttribute UserModel user, Model model) {
+
     public String addUserSubmit(@ModelAttribute UserModel user, Model model){
         userService.addUser(user);
         model.addAttribute("user", user);

@@ -24,4 +24,5 @@ public class UserServiceImpl implements UserService {
         String passwordHash = passwordEncoder.encode(password);
         return passwordHash;
     }
+
 }

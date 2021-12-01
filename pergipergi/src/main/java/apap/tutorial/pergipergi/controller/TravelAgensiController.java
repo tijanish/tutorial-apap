@@ -1,6 +1,5 @@
 package apap.tutorial.pergipergi.controller;
 
-
 import apap.tutorial.pergipergi.model.DestinasiModel;
 import apap.tutorial.pergipergi.model.TourGuideModel;
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
@@ -107,6 +106,7 @@ public class TravelAgensiController {
         model.addAttribute("listTourGuide", listTourGuide);
         model.addAttribute("listDestinasi", agensi.getListDestinasi());
 
+
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
 import apap.tutorial.pergipergi.service.TravelAgensiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -201,6 +201,8 @@ public class TravelAgensiController {
     }
 }
 
+}
+
 
     @GetMapping("/agensi/update/{noAgensi}")
     public String updateAgensiFormPage(
@@ -235,7 +237,6 @@ public class TravelAgensiController {
         return "error-notfound";
     }
 }
-=======
 
     @RequestMapping("agensi/delete/id-agensi/{idAgensi}")
     public String deleteIdAgensi(
