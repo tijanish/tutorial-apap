@@ -26,6 +26,7 @@ export default class Home extends React.Component {
         balance: 120,
     }
 
+
     handleAddItemToCart = (item) => {
         const newItems = [...this.state.cartItems];
         const newItem = {...item};
@@ -75,6 +76,7 @@ export default class Home extends React.Component {
         this.setState(this.saldoAwal);
     }
 
+
     render() {
         return (
             <div className="container-fluid">
@@ -106,6 +108,7 @@ export default class Home extends React.Component {
                                     All</button>
                                 : null
                             }
+
                         </div>
                         ) : <div className="col-sm">
                         <List

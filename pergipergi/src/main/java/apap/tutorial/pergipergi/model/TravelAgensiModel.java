@@ -125,8 +125,7 @@ public class TravelAgensiModel implements Serializable {
         this.listDestinasi = listDestinasi;
     }
 }
-<<<<<<< HEAD
-=======
+
 
 
 public class TravelAgensiModel {
@@ -183,4 +182,4 @@ public class TravelAgensiModel {
     }
 }
 
->>>>>>> d18d1a995f9a93efb8700fad0e023ae226694355
+

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package apap.tutorial.pergipergi.service;
 
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
@@ -98,7 +98,7 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
                 .bodyToMono(AgensiDetail.class);
     }
 }
-=======
+
 package apap.tutorial.pergipergi.service;
 
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
@@ -341,4 +341,4 @@ public class TravelAgensiRestServiceImpl implements TravelAgensiRestService {
     }
 }
 }
->>>>>>> d18d1a995f9a93efb8700fad0e023ae226694355
+

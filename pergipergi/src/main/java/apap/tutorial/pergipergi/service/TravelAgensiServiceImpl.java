@@ -1,10 +1,6 @@
 package apap.tutorial.pergipergi.service;
 
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
-<<<<<<< HEAD
-=======
-
->>>>>>> d18d1a995f9a93efb8700fad0e023ae226694355
 import apap.tutorial.pergipergi.repository.TravelAgensiDb;
 import apap.tutorial.pergipergi.rest.AgensiDetail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,8 +54,7 @@ public class TravelAgensiServiceImpl implements TravelAgensiService{
             return true;
         }
         return false;
-<<<<<<< HEAD
-=======
+
 
 import org.springframework.stereotype.Service;
 
@@ -92,7 +87,7 @@ public class TravelAgensiServiceImpl implements TravelAgensiService{
             }
         }
         return null;
->>>>>>> d18d1a995f9a93efb8700fad0e023ae226694355
+
     }
 
 }

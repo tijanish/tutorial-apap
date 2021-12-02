@@ -106,11 +106,10 @@ public class TravelAgensiController {
         model.addAttribute("listTourGuide", listTourGuide);
         model.addAttribute("listDestinasi", agensi.getListDestinasi());
 
-<<<<<<< HEAD
+
         return "view-agensi";
     }
 
-=======
 
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
 import apap.tutorial.pergipergi.service.TravelAgensiService;
@@ -209,7 +208,6 @@ public class TravelAgensiController {
 }
 
 
->>>>>>> d18d1a995f9a93efb8700fad0e023ae226694355
     @GetMapping("/agensi/update/{noAgensi}")
     public String updateAgensiFormPage(
             @PathVariable Long noAgensi,
@@ -242,9 +240,7 @@ public class TravelAgensiController {
         }
         return "error-notfound";
     }
-<<<<<<< HEAD
-}
-=======
+
 }
 
     @RequestMapping("agensi/delete/id-agensi/{idAgensi}")
@@ -272,4 +268,3 @@ public class TravelAgensiController {
 
 }
 
->>>>>>> d18d1a995f9a93efb8700fad0e023ae226694355
