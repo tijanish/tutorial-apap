@@ -1,3 +1,4 @@
+
 package apap.tutorial.pergipergi.controller;
 
 import apap.tutorial.pergipergi.model.RoleModel;
@@ -27,8 +28,6 @@ public class UserController {
 
     @GetMapping("/add")
     public String addUserFormPage(Model model) {
-
-    public String addUserFormPage(Model model){
         UserModel user = new UserModel();
         List<RoleModel> listRole = roleService.findAll();
         model.addAttribute("user", user);
@@ -38,11 +37,9 @@ public class UserController {
 
     @PostMapping(value = "/add")
     public String addUserSubmit(@ModelAttribute UserModel user, Model model) {
-
-    public String addUserSubmit(@ModelAttribute UserModel user, Model model){
         userService.addUser(user);
         model.addAttribute("user", user);
         return "redirect:/";
     }
-
 }
+

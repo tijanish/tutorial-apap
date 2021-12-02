@@ -127,6 +127,7 @@ public class TravelAgensiModel implements Serializable {
 }
 
 
+
 public class TravelAgensiModel {
     private String idAgensi;
     private String namaAgensi;
@@ -180,4 +181,5 @@ public class TravelAgensiModel {
         this.noTelepon = noTelepon;
     }
 }
+
 

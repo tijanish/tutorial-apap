@@ -1,7 +1,6 @@
 package apap.tutorial.pergipergi.service;
 
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
-
 import apap.tutorial.pergipergi.repository.TravelAgensiDb;
 import apap.tutorial.pergipergi.rest.AgensiDetail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +55,7 @@ public class TravelAgensiServiceImpl implements TravelAgensiService{
         }
         return false;
 
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -87,6 +87,7 @@ public class TravelAgensiServiceImpl implements TravelAgensiService{
             }
         }
         return null;
+
     }
 
 }

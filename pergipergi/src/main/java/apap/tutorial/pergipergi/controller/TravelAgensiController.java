@@ -107,6 +107,10 @@ public class TravelAgensiController {
         model.addAttribute("listDestinasi", agensi.getListDestinasi());
 
 
+        return "view-agensi";
+    }
+
+
 import apap.tutorial.pergipergi.model.TravelAgensiModel;
 import apap.tutorial.pergipergi.service.TravelAgensiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -236,6 +240,7 @@ public class TravelAgensiController {
         }
         return "error-notfound";
     }
+
 }
 
     @RequestMapping("agensi/delete/id-agensi/{idAgensi}")
