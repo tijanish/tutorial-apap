@@ -14,4 +14,22 @@ public interface TravelAgensiService {
     TravelAgensiModel updateAgensi(TravelAgensiModel travelAgensi);
     void deleteAgensi(TravelAgensiModel travelAgensi);
     boolean isClosed(LocalTime waktuBuka, LocalTime waktuTutup);
+<<<<<<< HEAD
+=======
+
+
+import apap.tutorial.pergipergi.model.TravelAgensiModel;
+import java.util.List;
+
+public interface TravelAgensiService {
+    //Method untuk menambahkan agensi
+    void addAgensi(TravelAgensiModel travelAgensi);
+
+    //Method untuk mendapatkan daftar agensi yang telah tersimpan
+    List<TravelAgensiModel> getListAgensi();
+
+    //Method untuk mendapatkan data agensi berdasarkan id agensi
+    TravelAgensiModel getAgensiByIdAgensi(String idAgensi);
+
+>>>>>>> d18d1a995f9a93efb8700fad0e023ae226694355
 }

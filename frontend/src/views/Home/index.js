@@ -18,6 +18,14 @@ export default class Home extends React.Component {
         };
     }
 
+    emptyCart = {
+        cartItems: [],
+    };
+
+    saldoAwal = {
+        balance: 120,
+    }
+
     handleAddItemToCart = (item) => {
         const newItems = [...this.state.cartItems];
         const newItem = {...item};
@@ -62,6 +70,11 @@ export default class Home extends React.Component {
         this.setState({cartItems: newItems });
     }
 
+    clearCart = () => {
+        this.setState(this.emptyCart);
+        this.setState(this.saldoAwal);
+    }
+
     render() {
         return (
             <div className="container-fluid">
@@ -88,6 +101,11 @@ export default class Home extends React.Component {
                                 items={this.state.cartItems}
                                 onItemClick={this.handleDeleteItemInCart}
                             ></List>
+                            {this.state.cartItems.length > 0
+                                ? <button type="button" class="btn btn-danger" onClick={this.clearCart}>Delete
+                                    All</button>
+                                : null
+                            }
                         </div>
                         ) : <div className="col-sm">
                         <List
